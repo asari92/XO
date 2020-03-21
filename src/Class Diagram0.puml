@@ -1,0 +1,68 @@
+@startuml
+
+class Main
+
+package model {
+    class Figure {
+
+    }
+
+    class Field{
+        getSize() : int
+        setFigure(Point point, Figure figure) : void
+        getFigure(Point point) : Figure
+    }
+
+    class Point {
+        getX() : int
+        getY() : int
+    }
+
+    class Player {
+        getName() : String
+        getFigure() : Figure
+    }
+
+    class Game {
+        getPlayers() : Player[]
+        getField() : Field
+        getName() : String
+    }
+
+    package exceptions {
+        class XOException
+    }
+
+    class InvalidMoveException {
+
+    }
+
+    class NoWinnerException {
+
+    }
+
+}
+
+package view {
+
+    class XOView {
+        show(Game game) : void
+        move(Game game) : void
+    }
+
+}
+
+package controller {
+    class MoveController {
+        applyFigure(Field field, Point point) : void
+    }
+
+    class WinnerController {
+        getWinner(Field field) : Figure
+    }
+
+    class CurrentMoveController {
+        currentMoveController(Field field) : Figure
+    }
+}
+@enduml
