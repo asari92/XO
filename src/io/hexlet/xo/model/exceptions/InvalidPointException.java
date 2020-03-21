@@ -1,7 +1,5 @@
 package io.hexlet.xo.model.exceptions;
 
-public class InvalidPointException {
-
-
+public class InvalidPointException extends AbstractXOException{
 
 }
