@@ -7,14 +7,19 @@ import java.awt.*;
 
 public class Field {
 
-    private static final int FIELD_SIZE = 3;
     private static final int MIN_COORDINATE = 0;
-    private static final int MAX_COORDINATE = 3;
 
-    private final Figure[][] field = new Figure[FIELD_SIZE][FIELD_SIZE];
+    private final int fieldSize;
+
+    private final Figure[][] field;
+
+    public Field(final int fieldSize) {
+        this.fieldSize = fieldSize;
+        field = new Figure[fieldSize][fieldSize];
+    }
 
     public int getSize() {
-        return  FIELD_SIZE;
+        return  fieldSize;
     }
 
     public Figure getFigure(final Point point) throws InvalidPointException {
@@ -33,11 +38,11 @@ public class Field {
     }
 
     private boolean checkPoint(final Point point) {
-        return checkOrdinate(point.x) && checkOrdinate(point.y);
+        return checkOrdinate(point.x, field.length) && checkOrdinate(point.y,field[point.x].length);
     }
 
-    private boolean checkOrdinate(final int ordinate) {
-        return ordinate >= MIN_COORDINATE && ordinate < MAX_COORDINATE;
+    private boolean checkOrdinate(final int ordinate, final int maxCoordinate) {
+        return ordinate >= MIN_COORDINATE && ordinate < maxCoordinate;
     }
 
 }
