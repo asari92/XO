@@ -54,7 +54,7 @@ package view {
 
 package controller {
     class MoveController {
-        applyFigure(Field field, Point point) : void
+        applyFigure(Field field, Figure figure, Point point) : void
     }
 
     class WinnerController {
